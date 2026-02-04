@@ -13,7 +13,10 @@
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache",
-    "format": "oxfmt src/"
+    "format": "oxfmt src/",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "pinia": "^3.0.4",
@@ -42,6 +45,7 @@
     "typescript": "~5.9.3",
     "vite": "beta",
     "vite-plugin-vue-devtools": "^8.0.5",
+    "vitepress": "2.0.0-alpha.16",
     "vitest": "^4.0.18",
     "vue-tsc": "^3.2.4"
   },
