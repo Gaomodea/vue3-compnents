@@ -1,0 +1,71 @@
+<!-- 文档模式：html5标准模式 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preload" href="js/append.js" as="script">
+
+  <!-- 提前下载，延迟到页面解析完毕执行，解析到结束的(</html>) -->
+   <!-- dom树已经构建完毕，能获取到完整的dom -->
+  <script defer src="js/script.js" ></script>
+
+  <!-- 提前下载，下载完毕后和dom解析并行执行 -->
+  <script async src="js/script.js" ></script>
+
+  <!-- async不保证执行顺序（加载完就执行），defer按出现的顺序执行，但实际情况不一定会严格按照出现的顺序执行，不能依赖这个属性，尽量只有一个defer script -->
+
+</head>
+<body>
+  <h1>script</h1>
+
+  <noscript>
+    <div>你的浏览器暂不支持javascript</div>
+  </noscript>
+
+  <script id="template" type="text/template">
+    <div>
+      this is template {{ abc }}
+    </div>
+  </script>
+
+  <script type="module">
+    // 默认就是异步的
+    const template = document.querySelector('#template')
+    // 需要转义
+    console.log(`in module <\/script>`)
+    console.log(template.innerHTML)
+  </script>
+
+  <!-- script中报错，不会阻塞页面后续的解析和执行 -->
+   <!-- html解析过程中的write和异步的write作用不同 -->
+  <script>
+    document.write('write abc')
+    // console.log(bb.bb)
+    // setTimeout(() => {
+    //   document.write('abc')
+    //   document.write('abc')
+    //   document.write('abc')
+    //   document.write('abc')
+    // })
+  </script>
+  <h2>write end</h2>
+  <script><!--
+    console.log(2)
+    const script = document.createElement('script')
+    script.src = 'js/append.js'
+    script.async = false
+    document.body.appendChild(script)
+    // 比较 script.async 和 document.write
+    // document.write同步阻塞页面执行
+    // document.write('<script src="js/append.js"><\/script>')
+  //--></script>
+  <h2>appended script</h2>
+  <!-- 报错 -->
+  <script src="js/script2.js"></script>
+  <script src="js/script.js"></script>
+  <!-- 其他域的js文件受cors规则限制不能执行 -->
+  <script src="http://localhost:5175/js/script.js"></script>
+</body>
+</html>
