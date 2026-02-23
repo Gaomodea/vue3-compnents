@@ -1,0 +1,6 @@
+1. docker
+2. jb mono字体
+3. vscode + 插件
+4. apifox
+5. highlight.js 代码高亮
+6. sequelize orm库

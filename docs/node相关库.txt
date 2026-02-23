@@ -1,0 +1,19 @@
+命令行参数解析：commander、mri、yargs、optionator、sade、meow、cac、clipanion
+	yargs:  严格验证
+	commaner：企业级
+	mri、sade：轻量级 *
+	clipanion：TS
+	cac：现代化（vite) *
+控制台进度条：cli-progress、log-update、cli-cursor、ora、restore-cursor
+文件操作：删除目录 premove
+事件：onetime、signal-exit
+日志颜色：picocolors
+子进程调用：cross-spawn、exec
+调试：debug、obug
+文件监听：chokidar
+websocket: ws
+正则匹配：tinyglobby
+中间件：connect
+魔法字符串：magic-string
+解析html: parse5
+
